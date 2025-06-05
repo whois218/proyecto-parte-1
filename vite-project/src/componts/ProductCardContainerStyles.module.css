@@ -1,0 +1,10 @@
+.container {
+  text-align: center;
+  color: rgb(124, 255, 135);
+}
+
+.productCardDiv {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
