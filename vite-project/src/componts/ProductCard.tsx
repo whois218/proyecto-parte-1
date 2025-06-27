@@ -5,10 +5,21 @@ type ProductCardProps = {
   titulo: string;
   descripcion: string;
   price?: number;
+  onAddToCart: () => void; 
+  onRemoveFromCart?: () => void;
+  isInCart?: boolean;
 };
 
 function ProductCard(props: ProductCardProps) {
-  const { src, titulo, descripcion, price } = props;
+  const { 
+  src, 
+  titulo, 
+  descripcion, 
+  price, 
+  onAddToCart,
+  onRemoveFromCart,
+  isInCart } = props;
+
 
   return (
     <article className={styles.container}>
@@ -17,10 +28,15 @@ function ProductCard(props: ProductCardProps) {
         <h2 className={styles.title}>{titulo}</h2>
         <p className={styles.description}>{descripcion}</p>
         <p className={styles.price}>${price}</p>
-        <button className={styles.button}>Comprar</button>
+        {isInCart ? ( 
+           <button onClick={onRemoveFromCart} className={styles.button}>quitar compra</button>
+        ):(
+          <button onClick={onAddToCart} className={styles.button}>Comprar</button>)}
+
+       
       </div>
     </article>
   );
-}
+};
 
 export default ProductCard;
