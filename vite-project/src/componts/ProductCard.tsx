@@ -29,7 +29,7 @@ function ProductCard(props: ProductCardProps) {
         <p className={styles.description}>{descripcion}</p>
         <p className={styles.price}>${price}</p>
         {isInCart ? ( 
-           <button onClick={onRemoveFromCart} className={styles.button}>quitar compra</button>
+           <button onClick={onRemoveFromCart} className={styles.button}>quitar del carrito</button>
         ):(
           <button onClick={onAddToCart} className={styles.button}>Comprar</button>)}
 
