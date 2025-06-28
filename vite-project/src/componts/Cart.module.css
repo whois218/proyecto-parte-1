@@ -1,0 +1,26 @@
+.cart {
+    position: absolute;
+    top: 0.1rem;
+    right: 2px; 
+    border: 1px solid rgba(127, 127, 127, 0.608);
+    padding: 10px;
+    background-color: rgba(100, 99, 99, 0.218);
+  }
+  
+  .div {
+    display: block;
+    unicode-bidi: isolate;
+  }
+  
+  .cart h3 {
+    margin: 0;
+  }
+  
+  .cart-item {
+    margin-bottom: 10px;
+  }
+  
+  .cart-item h4 {
+    margin: 0;
+  }
+  
