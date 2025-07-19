@@ -1,36 +1,40 @@
 import styles from './Navbar.module.css';
+import { Link } from 'react-router-dom';
 
 type NavbarProps = {
-  onCartToggle: () => void;
   cartItemCount: number;
+  hideCart?: boolean;
 };
 
-function Navbar({ onCartToggle, cartItemCount }: NavbarProps) {
+function Navbar({ cartItemCount, hideCart = false }: NavbarProps) {
   return (
-    <nav className={styles.logo}>
+    <nav className={styles.navbar}>
       <div className={styles.container}>
-        <h1 className={styles.h1}>3tour</h1>
+        <h1 className={styles.logo}>3tour</h1>
         <ul className={styles.links}>
           <li>
-            <a href="#">Inicio</a>
+            <Link to="/Home">Inicio</Link>
           </li>
           <li>
-            <a href="#">Productos</a>
+            <Link to="/productos">Productos</Link>
           </li>
           <li>
-            <a href="#">Contacto</a>
+            <Link to="/contacto">Contacto</Link>
           </li>
-          <li>
-            <button onClick={onCartToggle} className={styles.cartButton}>
-              🛒
-              {cartItemCount > 0 && (
-                <span className={styles.badge}>{cartItemCount}</span>
-              )}
-            </button>
-          </li>
+          {!hideCart && (
+            <li>
+              <Link to="/carrito" className={styles.cartButton}>
+                🛒
+                {cartItemCount > 0 && (
+                  <span className={styles.badge}>{cartItemCount}</span>
+                )}
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>
   );
 }
+
 export default Navbar;
