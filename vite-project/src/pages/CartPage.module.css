@@ -1,0 +1,118 @@
+.cartPageWrapper {
+    background-color: #111;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Inter', sans-serif;
+    color: #f1f1f1;
+  }
+  
+  .cartContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+    margin: 0 auto;
+  }
+  
+  .cartItems {
+    flex: 3;
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    width: 100%;
+  }
+  
+  .cartList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cartItem {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #222;
+    padding: 1rem;
+    border-radius: 12px;
+    align-items: center;
+  }
+  
+  .productImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .productDetails {
+    flex: 1;
+  }
+  
+  .quantityControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .removeButton,
+  .clearButton,
+  .checkoutButton {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .checkoutButton {
+    background-color: #00b894;
+  }
+  
+  .summaryBox {
+    flex: 2;
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    width: 100%;
+    height: fit-content;
+  }
+  
+  .label {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+  }
+  
+  .input {
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: none;
+    margin-top: 0.5rem;
+    background-color: #2a2a2a;
+    color: white;
+  }
+  
+  .emptyCartContainer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+  }
+  
+  .emptyCart {
+    color: #fff;
+    font-size: 2rem;
+  }
+  
