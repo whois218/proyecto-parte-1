@@ -1,19 +1,36 @@
-import React from 'react';
 import ProductCard from '../componts/ProductCard.tsx';
 import ProductCardContainer from '../componts/ProductCardContainer.tsx';
+import './Inicio.css';
+import React from 'react';
 import Navbar from '../componts/Navbar.tsx';
 import BoxCheck from '../componts/Boxcheck';
-import { useCart } from '../pages/CartContext';
 import type { Product } from '../data/Product';
-import { useProducts } from '../hooks/useProducts'; 
+import { useCart } from '../pages/CartContext';
+import {
+  products,
+  productosHotSale,
+  prendas2025,
+  pantalonesoff,
+  conjuntos2025,
+  shorts2025,
+  prendasinsanas,
+} from '../data/Product';
+
+const allProducts: Product[] = [
+  ...products,
+  ...productosHotSale,
+  ...prendas2025,
+  ...pantalonesoff,
+  ...conjuntos2025,
+  ...shorts2025,
+  ...prendasinsanas,
+];
 
 function Inicio() {
   const { cart, addToCart, removeFromCart, totalItems } = useCart();
 
   const [filtros, setFiltros] = React.useState<string[]>([]);
   const [busqueda, setBusqueda] = React.useState('');
-
-  const { data: allProducts, isLoading, isError } = useProducts();
 
   const toggleFiltro = (filtro: string) => {
     setFiltros((prev) =>
@@ -23,31 +40,25 @@ function Inicio() {
     );
   };
 
-  const filtrarProductos = (lista: Product[] = []) => {
-    return lista.filter((producto) => {
-      if (!producto.title) return false; 
-
-      const coincideBusqueda = producto.title
+  const filtrarProductos = (lista: Product[]) =>
+    lista.filter((producto) => {
+      const coincideBusqueda = producto.titulo
         .toLowerCase()
         .includes(busqueda.toLowerCase());
-
       const coincideFiltro =
         filtros.length === 0 ||
-        (filtros.includes('Hot Sale') && producto.category === 'Hot Sale') ||
-        (filtros.includes('Conjuntos 2025') && producto.category === 'Conjuntos 2025') ||
+        (filtros.includes('Hot Sale') &&
+          productosHotSale.some((p) => p.id === producto.id)) ||
+        (filtros.includes('Conjuntos 2025') &&
+          conjuntos2025.some((p) => p.id === producto.id)) ||
         (filtros.includes('Oferta < 300') && producto.price < 300);
-
       return coincideBusqueda && coincideFiltro;
     });
-  };
-
-  if (isLoading) return <p>Cargando productos...</p>;
-  if (isError) return <p>Error al cargar productos.</p>;
 
   return (
     <>
       <Navbar cartItemCount={totalItems} />
-    
+
       <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
         <BoxCheck
           label="Hot Sale"
@@ -89,9 +100,9 @@ function Inicio() {
           <ProductCard
             key={product.id}
             id={product.id}
-            title={product.title}
-            description={product.description}
-            image={product.image || 'http://localhost:4000/products'}
+            titulo={product.titulo}
+            descripcion={product.descripcion}
+            src={product.src}
             price={product.price}
             onAddToCart={() => addToCart(product)}
             onRemoveFromCart={() => removeFromCart(product.id)}
