@@ -25,4 +25,8 @@
   .button:hover {
     background-color: #b66304;
   }
+
+body {
+  display: block;
+}
   

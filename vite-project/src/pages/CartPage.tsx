@@ -46,12 +46,12 @@ export default function CartPage() {
               {Object.values(cart).map(({ product, quantity }) => (
                 <li key={product.id} className={styles.cartItem}>
                   <img
-                    src={product.src}
-                    alt={product.titulo}
+                    src={product.image || 'http://localhost:4000/products'}
+                    alt={product.title}
                     className={styles.productImage}
                   />
                   <div className={styles.productDetails}>
-                    <h3>{product.titulo}</h3>
+                    <h3>{product.title}</h3>
                     <p>Precio: ${product.price}</p>
                     <div className={styles.quantityControls}>
                       <button onClick={() => decreaseQuantity(product.id)}>
