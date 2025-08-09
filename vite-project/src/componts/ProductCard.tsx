@@ -2,9 +2,9 @@ import styles from './ProductCardStyles.module.css';
 import { Link } from 'react-router-dom';
 
 type ProductCardProps = {
-  src: string;
-  titulo: string;
-  descripcion: string;
+  image: string;
+  title: string;
+  description: string;
   price?: number;
   onAddToCart: () => void;
   onRemoveFromCart?: () => void;
@@ -13,9 +13,9 @@ type ProductCardProps = {
 };
 
 function ProductCard({
-  src,
-  titulo,
-  descripcion,
+  image,
+  title,
+  description,
   price,
   onAddToCart,
   onRemoveFromCart,
@@ -25,10 +25,10 @@ function ProductCard({
   return (
     <article className={styles.container}>
       <Link to={`/producto/${id}`}>
-        <img className={styles.img} src={src} />
+        <img className={styles.img} src={image} />
         <div className={styles.content}>
-          <h2 className={styles.title}>{titulo}</h2>
-          <p className={styles.description}>{descripcion}</p>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.description}>{description}</p>
           <p className={styles.price}>${price}</p>
         </div>
       </Link>
