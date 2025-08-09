@@ -1,0 +1,62 @@
+.checkoutForm {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .checkoutForm h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+  
+  .checkoutForm p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .checkoutForm label {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .checkoutForm input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #2c2c2c;
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .checkoutForm input:focus {
+    outline: 2px solid #4caf50;
+    background-color: #333;
+  }
+  
+  .checkoutForm button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .checkoutForm button:hover {
+    background-color: #45a049;
+  }
+  
