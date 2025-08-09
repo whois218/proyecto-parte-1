@@ -3,9 +3,6 @@ import Navbar from '../componts/Navbar';
 import styles from './CartPage.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
-
 export default function CartPage() {
   const navigate = useNavigate();
   const {
@@ -17,10 +14,8 @@ export default function CartPage() {
     totalPrice,
     clearCart,
   } = useCart();
-
   const [email, setEmail] = useState('usuario@example.com');
   const [paymentMethod, setPaymentMethod] = useState('Tarjeta de crédito');
-
   if (Object.keys(cart).length === 0) {
     return (
       <>
@@ -31,7 +26,6 @@ export default function CartPage() {
       </>
     );
   }
-
   return (
     <>
       <Navbar cartItemCount={totalItems} hideCart />
@@ -46,12 +40,12 @@ export default function CartPage() {
               {Object.values(cart).map(({ product, quantity }) => (
                 <li key={product.id} className={styles.cartItem}>
                   <img
-                    src={product.src}
-                    alt={product.titulo}
+                    src={product.image || 'http://localhost:3000/products'}
+                    alt={product.title}
                     className={styles.productImage}
                   />
                   <div className={styles.productDetails}>
-                    <h3>{product.titulo}</h3>
+                    <h3>{product.title}</h3>
                     <p>Precio: ${product.price}</p>
                     <div className={styles.quantityControls}>
                       <button onClick={() => decreaseQuantity(product.id)}>
@@ -73,7 +67,6 @@ export default function CartPage() {
               ))}
             </ul>
           </div>
-
           <div className={styles.summaryBox}>
             <h2>Resumen</h2>
             <p>
@@ -82,7 +75,6 @@ export default function CartPage() {
             <p>
               <strong>Método de envío:</strong> Envío estándar (3-5 días)
             </p>
-
             <label className={styles.label}>
               <span>Correo:</span>
               <input
@@ -92,7 +84,6 @@ export default function CartPage() {
                 className={styles.input}
               />
             </label>
-
             <label className={styles.label}>
               <span>Método de pago:</span>
               <select
@@ -106,7 +97,6 @@ export default function CartPage() {
                 <option>Transferencia</option>
               </select>
             </label>
-
             <button
               className={styles.checkoutButton}
               onClick={() => navigate('/checkout')}
